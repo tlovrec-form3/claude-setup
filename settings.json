@@ -1,0 +1,141 @@
+{
+  "env": {
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(kubectl config current-context:*)",
+      "Bash(kubectl config view:*)",
+      "Bash(helm list:*)",
+      "Bash(helm status:*)",
+      "Bash(helm get:*)",
+      "Bash(helm show:*)",
+      "Bash(helm template:*)",
+      "Bash(helm lint:*)",
+      "Bash(helm diff:*)",
+      "Bash(helm history:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote -v:*)",
+      "Bash(git fetch:*)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl describe:*)",
+      "Bash(kubectl logs:*)",
+      "Bash(kubectl top:*)",
+      "Bash(kubectl rollout status:*)",
+      "Bash(kubectl rollout history:*)",
+      "Bash(terraform plan:*)",
+      "Bash(terraform show:*)",
+      "Bash(go build:*)",
+      "Bash(go vet:*)",
+      "Bash(go fmt:*)",
+      "Bash(gofmt:*)",
+      "Bash(go test:*)",
+      "Bash(go mod tidy:*)",
+      "Bash(go mod download:*)",
+      "Bash(go mod verify:*)",
+      "Bash(go mod graph:*)",
+      "Bash(go mod why:*)",
+      "Bash(go doc:*)",
+      "Bash(go list:*)",
+      "Bash(go version:*)",
+      "Bash(go env:*)",
+      "Bash(go clean:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr status:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh repo clone:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh workflow list:*)",
+      "Bash(gh workflow view:*)",
+      "Bash(gh release list:*)",
+      "Bash(gh release view:*)",
+      "Bash(gh search:*)",
+      "Bash(gh status:*)",
+      "Bash(gh gist list:*)",
+      "Bash(gh gist view:*)",
+      "Bash(gh auth status:*)"
+    ],
+    "deny": [
+      "Bash(kubectl apply:*)",
+      "Bash(kubectl create:*)",
+      "Bash(kubectl edit:*)",
+      "Bash(kubectl patch:*)",
+      "Bash(kubectl replace:*)",
+      "Bash(kubectl scale:*)",
+      "Bash(kubectl drain:*)",
+      "Bash(kubectl cordon:*)",
+      "Bash(kubectl uncordon:*)",
+      "Bash(kubectl taint:*)",
+      "Bash(kubectl exec:*)",
+      "Bash(kubectl config use-context:*)",
+      "Bash(helm install:*)",
+      "Bash(helm upgrade:*)",
+      "Bash(helm uninstall:*)",
+      "Bash(helm delete:*)",
+      "Bash(helm rollback:*)",
+      "Bash(make deploy:*)",
+      "Bash(make apply:*)",
+      "Bash(make release:*)",
+      "Bash(make publish:*)",
+      "Bash(make push:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(terraform apply:*)",
+      "Bash(terraform destroy:*)",
+      "Bash(git branch -d:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git branch -m:*)",
+      "Bash(git branch -M:*)",
+      "Bash(gh repo delete:*)"
+    ],
+    "ask": [
+      "Bash(kubectl delete:*)",
+      "Bash(kubectl rollout restart:*)",
+      "Bash(kubectl rollout undo:*)",
+      "Bash(kubectl rollout pause:*)",
+      "Bash(kubectl rollout resume:*)"
+    ],
+    "defaultMode": "default"
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|idle_prompt|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/tomazlovrec/.claude/statusline-command.sh"
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-sonnet-5": {
+      "effortLevel": "high"
+    }
+  },
+  "tui": "fullscreen",
+  "theme": "dark",
+  "editorMode": "vim"
+}
