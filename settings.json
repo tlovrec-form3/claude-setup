@@ -4,6 +4,10 @@
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
       "Bash(kubectl config current-context:*)",
@@ -109,7 +113,7 @@
     ],
     "defaultMode": "default"
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -127,15 +131,31 @@
     "type": "command",
     "command": "bash /Users/tomazlovrec/.claude/statusline-command.sh"
   },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "cc-plugin-you-should-know@builtin": true
+  },
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "xhigh"
     },
     "claude-sonnet-5": {
       "effortLevel": "high"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "xhigh"
     }
   },
   "tui": "fullscreen",
   "theme": "dark",
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": false,
+    "failIfUnavailable": true,
+    "network": {
+        "allowLocalBinding": true
+    }
+  }
 }
